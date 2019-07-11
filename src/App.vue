@@ -1,28 +1,59 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <topbar id="top" />
+    <sidebar id="side" />
+    <!-- Desktop -->
+    <div id="window" class="row w-100 m-0">
+      <div class="col p-0 pt-3">
+        <Main />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Main from "./components/Main.vue";
+import Sidebar from "./components/Sidebar.vue";
+import Topbar from "./components/Topbar.vue";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
-    HelloWorld
+    Main,
+    Sidebar,
+    Topbar
   }
-}
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  height: 100%;
+}
+
+#side {
+  position: fixed;
+  width: 400px;
+  height: calc(100% - 74px);
+  z-index: 1001 !important;
+  left: 0;
+  bottom: 0;
+}
+
+#top {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000 !important;
+}
+
+.card {
+  border-radius: 12px !important;
+}
+
+#window {
+  height: 100%;
+  padding-left: 80px;
+  padding-top: 74px !important; 
 }
 </style>
