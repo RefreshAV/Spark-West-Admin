@@ -13,7 +13,7 @@
         </button>
       </div>
     </div>
-    <div class="card shadow">
+    <div class="card mb-3 shadow">
       <div class="card-body">
         <div class="row">
           <div class="col">
@@ -26,7 +26,12 @@
         <div class="row" id="recent-events">
           <div class="col">
             <div class="card-deck">
-              <a href="#" class="card mb-3 bg-dark text-light" v-for="event in recent" :key="event.id">
+              <router-link
+                :to="'/event/' + event.id"
+                class="card mb-3 bg-dark text-light"
+                v-for="event in recent"
+                :key="event.id"
+              >
                 <div class="card-header">
                   <h4>{{ event.title }}</h4>
                 </div>
@@ -34,7 +39,7 @@
                 <div class="card-footer">
                   <small>Uploaded {{ event.uploaded }}</small>
                 </div>
-              </a>
+              </router-link>
             </div>
           </div>
         </div>
@@ -85,11 +90,27 @@ export default {
 <style scoped>
 #recent-events {
   overflow-y: scroll;
-  max-height: 360px
+  max-height: 360px;
+}
+
+#recent-events::-webkit-scrollbar-thumb {
+  border-radius: 40px;
+}
+
+#recent-events::-webkit-scrollbar-track-piece {
+  border-radius: 40px;
 }
 
 #recent-events .card {
   min-width: 280px;
   text-decoration: none;
+  cursor:pointer;
+  z-index: 1002 !important;
+}
+
+@media (max-width: 420px) {
+  #recent-events .card {
+    min-width: 0px;
+  }
 }
 </style>

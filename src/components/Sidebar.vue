@@ -14,13 +14,13 @@
           <div class="col">
             <div class="row mb-5">
               <div class="col mx-1 d-flex justify-content-end">
-                <a
+                <router-link
                   id="Home"
-                  href="#"
+                  to="/"
                   class="btn border-0 btn-lg text-center px-0 btn-outline-light btn-nav btn-min"
                 >
                   <i class="fas fa-home"></i>
-                </a>
+                </router-link>
               </div>
             </div>
             <div class="row mb-5">
@@ -53,6 +53,7 @@
 </template>
 
 <script>
+import { setTimeout } from "timers";
 export default {
   name: "sidebar",
   data() {
@@ -80,6 +81,7 @@ export default {
         document.getElementById("Home").innerHTML = "Home";
         document.getElementById("Edit").innerHTML = "Edit";
         document.getElementById("Manage").innerHTML = "Manage";
+        this.maximize();
       } else {
         document.getElementById("Home").innerHTML =
           "<i class='fas fa-home'></i>";
@@ -87,12 +89,22 @@ export default {
           "<i class='fas fa-edit'></i>";
         document.getElementById("Manage").innerHTML =
           "<i class='fas fa-user-shield'></i>";
+        setTimeout(this.maximize, 500);
+      }
+    },
+    $route(to, from) {
+      if (this.toggled) {
+        this.toggled = false;
       }
     }
   },
   methods: {
     toggle() {
       this.toggled = !this.toggled;
+    },
+    maximize() {
+      document.getElementById("side").classList.toggle("sideMax");
+      console.log("maximize");
     }
   }
 };
@@ -105,12 +117,26 @@ export default {
   transition: 0.5s;
   margin: 0px;
   background-color: #fd4260;
-  z-index: 2000 !important;
 }
 
-/* #hamburger {
-  max-width: 80px !important;
-} */
+@media (max-width: 619px) {
+  #wrapper {
+    width: 300px !important;
+  }
+
+  #control {
+    width: 60px !important;
+    height: 60px !important;
+  }
+
+  .min {
+    transform: translateX(-240px) !important;
+  }
+
+  .btn-min {
+    width: 22px !important;
+  }
+}
 
 #control {
   position: absolute;
@@ -133,7 +159,6 @@ export default {
 
 .min {
   transform: translateX(-320px);
-  margin-right: -320px !important;
 }
 
 .text-light:focus {
@@ -146,6 +171,6 @@ export default {
 }
 
 .btn-min {
-  width: 42px !important;
+  width: 42px;
 }
 </style>

@@ -1,8 +1,9 @@
 <template>
   <nav class="navbar navbar-dark bg-dark shadow">
-    <a class="navbar-brand h-100" href="#">
+    <router-link class="navbar-brand h-100 d-flex align-items-center" to="/">
       <img src="../assets/logo.svg" alt="logo" class="h-100" />
-    </a>
+      <span class="badge badge-danger ml-2">Admin</span>
+    </router-link>
   </nav>
 </template>
 
@@ -15,6 +16,9 @@ export default {
 <style scoped>
 .badge {
   background-color: #fd4260;
+  font-size: 1.2em;
+  font-family: "Nunito", sans-serif;
+  font-weight: bold;
 }
 
 nav {

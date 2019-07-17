@@ -1,25 +1,27 @@
 <template>
   <div id="app">
-    <topbar id="top" />
-    <sidebar id="side" />
-    <!-- Desktop -->
-    <div id="window" class="row w-100 m-0">
-      <div class="col p-0 pt-3">
-        <Main />
+    <div>
+      <!-- Nav -->
+      <topbar id="top" />
+      <sidebar id="side" />
+
+      <!-- Main -->
+      <div id="window" class="row w-100 m-0">
+        <div class="col p-0 pt-3">
+          <router-view></router-view>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Main from "./components/Main.vue";
 import Sidebar from "./components/Sidebar.vue";
 import Topbar from "./components/Topbar.vue";
 
 export default {
   name: "app",
   components: {
-    Main,
     Sidebar,
     Topbar
   }
@@ -35,9 +37,23 @@ export default {
   position: fixed;
   width: 400px;
   height: calc(100% - 74px);
-  z-index: 1001 !important;
+  z-index: 1001;
   left: 0;
   bottom: 0;
+}
+
+.sideMax {
+  z-index: 1003 !important;
+}
+
+@media (max-width: 619px) {
+  #side {
+    width: 300px;
+  }
+
+  #window {
+    padding-left: 60px !important;
+  }
 }
 
 #top {
@@ -54,6 +70,6 @@ export default {
 #window {
   height: 100%;
   padding-left: 80px;
-  padding-top: 74px !important; 
+  padding-top: 74px !important;
 }
 </style>
