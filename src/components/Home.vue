@@ -1,45 +1,47 @@
 <template>
-  <div class="container">
-    <div class="card shadow mb-3">
-      <div class="card-body">
-        <h1>Home</h1>
-      </div>
-    </div>
-    <div v-for="(error, index) in errors" :key="index">
-      <div :class="'alert alert-dismissible fade show ' + error.type" role="alert">
-        <strong>Important Warning!</strong>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-    </div>
-    <div class="card mb-3 shadow">
-      <div class="card-body">
-        <div class="row">
-          <div class="col">
-            <h3>Recent Postings:</h3>
-          </div>
+  <div id="home">
+    <div class="container pt-3">
+      <div class="card shadow mb-3">
+        <div class="card-body">
+          <h1>Home</h1>
         </div>
+      </div>
+      <div v-for="(error, index) in errors" :key="index">
+        <div :class="'alert alert-dismissible fade show ' + error.type" role="alert">
+          <strong>Important Warning!</strong>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+      <div class="card mb-3 shadow">
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <h3>Recent Postings:</h3>
+            </div>
+          </div>
 
-        <hr />
+          <hr />
 
-        <div class="row" id="recent-events">
-          <div class="col">
-            <div class="card-deck">
-              <router-link
-                :to="'/event/' + event.id"
-                class="card mb-3 bg-dark text-light"
-                v-for="event in recent"
-                :key="event.id"
-              >
-                <div class="card-header">
-                  <h4>{{ event.title }}</h4>
-                </div>
-                <div class="card-body">{{ event.desc }}</div>
-                <div class="card-footer">
-                  <small>Uploaded {{ event.uploaded }}</small>
-                </div>
-              </router-link>
+          <div class="row" id="recent-events">
+            <div class="col">
+              <div class="card-deck">
+                <router-link
+                  :to="'/event/' + event.id"
+                  class="card mb-3 bg-dark text-light"
+                  v-for="event in recent"
+                  :key="event.id"
+                >
+                  <div class="card-header">
+                    <h4>{{ event.title }}</h4>
+                  </div>
+                  <div class="card-body">{{ event.desc }}</div>
+                  <div class="card-footer">
+                    <small>Uploaded {{ event.uploaded }}</small>
+                  </div>
+                </router-link>
+              </div>
             </div>
           </div>
         </div>
@@ -88,6 +90,11 @@ export default {
 </script>
 
 <style scoped>
+#home {
+  padding-left: 80px;
+  padding-top: 74px;
+}
+
 #recent-events {
   overflow-y: scroll;
   max-height: 360px;
@@ -104,7 +111,7 @@ export default {
 #recent-events .card {
   min-width: 280px;
   text-decoration: none;
-  cursor:pointer;
+  cursor: pointer;
   z-index: 1002 !important;
 }
 

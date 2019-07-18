@@ -1,15 +1,13 @@
 <template>
   <div id="app">
-    <div>
-      <!-- Nav -->
-      <topbar id="top" />
-      <sidebar id="side" />
+    <!-- Nav -->
+    <topbar id="top" v-if="authenticated" class="animated slideInDown"/>
+    <sidebar id="side" v-if="authenticated" class="animated slideInLeft"/>
 
-      <!-- Main -->
-      <div id="window" class="row w-100 m-0">
-        <div class="col p-0 pt-3">
-          <router-view></router-view>
-        </div>
+    <!-- Main -->
+    <div id="window" class="row w-100 m-0">
+      <div class="col p-0">
+        <router-view></router-view>
       </div>
     </div>
   </div>
@@ -21,6 +19,20 @@ import Topbar from "./components/Topbar.vue";
 
 export default {
   name: "app",
+  data() {
+    return {
+      authenticated: true
+    }
+  },
+  watch: {
+    $route(to, from) {
+      if(to.name == "login") {
+        this. authenticated = false
+      } else {
+        this.authenticated = true
+      }
+    }
+  },
   components: {
     Sidebar,
     Topbar
@@ -69,7 +81,7 @@ export default {
 
 #window {
   height: 100%;
-  padding-left: 80px;
-  padding-top: 74px !important;
+  /* padding-left: 80px;
+  padding-top: 74px !important; */
 }
 </style>
