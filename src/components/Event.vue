@@ -1,5 +1,5 @@
 <template>
-  <div id="event">
+  <div class="wrapper">
     <div class="container pt-3">
       <div v-if="!editing" class="animated fadeIn">
         <div class="card mb-3 bg-dark text-light shadow" v-if="id">
@@ -469,10 +469,6 @@ export default {
 </script>
 
 <style scoped>
-#event {
-  padding-left: 80px;
-  padding-top: 74px;
-}
 
 img {
   border-radius: 12px;

@@ -5,6 +5,7 @@ import firebase from 'firebase'
 import Auth from "./components/Auth.vue"
 import Home from './components/Home.vue'
 import Event from './components/Event.vue'
+import Manager from "./components/Manager.vue"
 
 Vue.use(Router)
 
@@ -34,6 +35,14 @@ const router = new Router({
             path: "/event/:id",
             component: Event,
             name: 'event',
+            meta: {
+                requiresAuth: true
+            }
+        },
+        {
+            path: "/manage",
+            component: Manager,
+            name: 'manager',
             meta: {
                 requiresAuth: true
             }

@@ -2,7 +2,7 @@
   <nav class="navbar navbar-dark bg-dark shadow text-light">
     <router-link class="navbar-brand h-100 d-flex align-items-center" to="/">
       <img src="../assets/logo.svg" alt="logo" class="h-100" />
-      <span class="badge badge-danger ml-2">Admin</span>
+      <span class="badge badge-danger ml-2 d-none d-md-inline">Admin</span>
     </router-link>
     <div class="h-100 d-flex align-items-center">
       <div class="dropdown mr-3">
@@ -23,6 +23,7 @@
         id="profPic"
         src="https://cdn.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png"
         alt="profile picture"
+        class="d-none d-md-inline"
       />
     </div>
   </nav>
@@ -66,17 +67,5 @@ nav {
 #profPic {
   max-height: 100%;
   border-radius: 100%;
-}
-
-.btn-danger {
-  background-color: #fd4260;
-}
-
-.btn-danger:hover {
-  background-color: #e63452;
-}
-
-.btn-danger:focus {
-  background-color: #cc1d3a;
 }
 </style>

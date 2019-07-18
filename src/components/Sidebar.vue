@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="wrapper" class="p-3 text-light min">
+    <div id="slide" class="p-3 text-light min">
       <!-- Control -->
       <div id="control">
         <a href class="text-light" @click.prevent="toggle">
@@ -36,13 +36,13 @@
             </div>
             <div class="row mb-5">
               <div class="col mx-1 d-flex justify-content-end">
-                <a
+                <router-link
                   id="Manage"
-                  href="#"
+                  to="/manage"
                   class="btn border-0 btn-lg text-center px-0 btn-outline-light btn-nav btn-min"
                 >
                   <i class="fas fa-user-shield"></i>
-                </a>
+                </router-link>
               </div>
             </div>
           </div>
@@ -63,7 +63,7 @@ export default {
   },
   watch: {
     toggled: function() {
-      document.getElementById("wrapper").classList.toggle("min");
+      document.getElementById("slide").classList.toggle("min");
       document.getElementById("bars").classList.toggle("rotate");
 
       let btns = document.getElementsByClassName("btn-nav");
@@ -104,14 +104,13 @@ export default {
     },
     maximize() {
       document.getElementById("side").classList.toggle("sideMax");
-      console.log("maximize");
     }
   }
 };
 </script>
 
 <style scoped>
-#wrapper {
+#slide {
   height: 100%;
   width: 400px;
   transition: 0.5s;
@@ -120,7 +119,7 @@ export default {
 }
 
 @media (max-width: 619px) {
-  #wrapper {
+  #slide {
     width: 300px !important;
   }
 

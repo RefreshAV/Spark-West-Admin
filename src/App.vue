@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <!-- Nav -->
-    <topbar id="top" v-if="authenticated" class="animated slideInDown"/>
-    <sidebar id="side" v-if="authenticated" class="animated slideInLeft"/>
+    <topbar id="top" v-if="authenticated" class="animated slideInDown" />
+    <sidebar id="side" v-if="authenticated" class="animated slideInLeft" />
 
     <!-- Main -->
     <div id="window" class="row w-100 m-0">
@@ -22,14 +22,14 @@ export default {
   data() {
     return {
       authenticated: true
-    }
+    };
   },
   watch: {
     $route(to, from) {
-      if(to.name == "login") {
-        this. authenticated = false
+      if (to.name == "login") {
+        this.authenticated = false;
       } else {
-        this.authenticated = true
+        this.authenticated = true;
       }
     }
   },
@@ -41,6 +41,11 @@ export default {
 </script>
 
 <style>
+.wrapper {
+  padding-left: 80px;
+  padding-top: 74px;
+}
+
 #app {
   height: 100%;
 }
@@ -63,8 +68,8 @@ export default {
     width: 300px;
   }
 
-  #window {
-    padding-left: 60px !important;
+  .wrapper {
+    padding-left: 60px;
   }
 }
 
@@ -72,7 +77,7 @@ export default {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1000 !important;
+  z-index: 1005 !important;
 }
 
 .card {
@@ -81,7 +86,24 @@ export default {
 
 #window {
   height: 100%;
-  /* padding-left: 80px;
-  padding-top: 74px !important; */
+}
+
+/* Button colours */
+.btn-danger {
+  background-color: #fd4260;
+}
+
+.btn-danger:hover {
+  background-color: #e63452;
+}
+
+.btn-outline-danger {
+  border-color: #fd4260;
+  color: #fd4260;
+}
+
+.btn-outline-danger:hover {
+  background-color: #e63452;
+  color: white;
 }
 </style>

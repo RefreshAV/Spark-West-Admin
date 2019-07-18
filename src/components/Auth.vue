@@ -164,16 +164,4 @@ input[type="password"] {
 .card-body {
   transition: 1s;
 }
-
-.btn-danger {
-  background-color: #fd4260;
-}
-
-.btn-danger:hover {
-  background-color: #e63452;
-}
-
-.btn-danger:focus {
-  background-color: #cc1d3a;
-}
 </style>

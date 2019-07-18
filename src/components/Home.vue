@@ -1,5 +1,5 @@
 <template>
-  <div id="home">
+  <div class="wrapper">
     <div class="container pt-3">
       <div class="card shadow mb-3">
         <div class="card-body">
@@ -90,11 +90,6 @@ export default {
 </script>
 
 <style scoped>
-#home {
-  padding-left: 80px;
-  padding-top: 74px;
-}
-
 #recent-events {
   overflow-y: scroll;
   max-height: 360px;
@@ -112,6 +107,9 @@ export default {
   min-width: 280px;
   text-decoration: none;
   cursor: pointer;
+}
+
+.card {
   z-index: 1002 !important;
 }
 
